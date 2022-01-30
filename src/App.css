@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+*{
+  height: 100%;
+}
+.root-container {
+  display: flex;
+  align-items: stretch;
+}
+.main {
+  flex-grow: 1;
+  background-color: red;
+}
+.left {
+  order: -1;
+  flex: 0 1 200px;
+  background-color: blue;
+}
+.right {
+  flex: 0 1 300px;
+  background-color: green;
+}
+
