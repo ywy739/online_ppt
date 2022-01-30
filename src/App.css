@@ -36,12 +36,11 @@
     transform: rotate(360deg);
   }
 }
-*{
-  height: 100%;
-}
+
 .root-container {
   display: flex;
   align-items: stretch;
+  height: 100%;
 }
 .main {
   flex-grow: 1;

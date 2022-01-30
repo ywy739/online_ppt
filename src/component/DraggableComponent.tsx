@@ -1,16 +1,18 @@
-import { ReactElement } from "react";
 import Draggable from "react-draggable";
+import getDOM from "./staticComponents";
 
 type Props = {
-    children : ReactElement;
+    type: string;
+    style?: React.CSSProperties;
+    key?: string|number;
 }
 
-const DraggableWrap = (props: Props) => {
+const DraggableComponent = (props: Props) => {
     return (
-        <Draggable>
-            {props.children}
+        <Draggable bounds='parent' key={props.key}>
+           {getDOM({type: props.type})}
         </Draggable>
     );
 }
 
-export default  DraggableWrap;
+export default  DraggableComponent;

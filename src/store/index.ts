@@ -1,11 +1,16 @@
-import { Store } from 'antd/lib/form/interface'
-import { combineReducers, createStore } from 'redux'
+import { combineReducers } from 'redux'
 import fullscreenReducer from './fullscreen'
+import editingSlideReducer from './editingSlide'
+import { configureStore } from '@reduxjs/toolkit';
 
 const rootReducer = combineReducers({
     fullscreen: fullscreenReducer,
+    editingSlide: editingSlideReducer,
 })
 
-let store = createStore(rootReducer);
+// const store = createStore(rootReducer);
+const store = configureStore({reducer: rootReducer});
 
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppDispatch = typeof store.dispatch;
 export default store;
