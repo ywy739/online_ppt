@@ -7,9 +7,8 @@ import DraggableComponent from "../../component/DraggableComponent";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 
 function Editor() {
-  const editingArea = useRef(null);
-  const {contents} = useAppSelector(state => state.editingSlide);
   const dispatch = useAppDispatch();
+  const {contents} = useAppSelector(state => state.editingSlide);
 
   return (
     <div className={style.container}>
@@ -18,7 +17,7 @@ function Editor() {
         <Button size='middle' onClick={() => dispatch(addEle({type: 'img'}))}>图片</Button>
       </div>
       <div className={style.draggableContainer}>
-        <div className={style.editingSlide} ref={editingArea}>
+        <div className={style.editingSlide}>
           {contents.map((ele, index) => {
             return DraggableComponent({...ele, key: index})
           })}

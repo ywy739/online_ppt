@@ -6,12 +6,12 @@ type DOMDescription = {
     style?: React.CSSProperties;
 }
 const getDOM = (arg: DOMDescription) => {
-    const {type} = arg;
+    const {type, style} = arg;
     switch(type){
         case 'text':
-            return <Input placeholder="文本" />;
+            return <Input placeholder="文本" style={style}/>;
         case 'img':
-            return (<Input placeholder="图片" />);
+            return (<Input placeholder="图片" style={style}/>);
     }
 }
 export default getDOM;

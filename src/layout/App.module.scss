@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+.main {
+  flex-grow: 1;
+}
+.left {
+  order: -1;
+  flex: 0 0 200px;
+}
+.right {
+  flex: 0 0 300px;
+}

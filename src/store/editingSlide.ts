@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type EditingSlide = {
-  index: number;
+type Slide = {
+  index: number;// 第n张幻灯片
   contents: EditingEle[];
+  activeEle?: number; // 编辑中的幻灯片存在一个编辑中的元素
 }
 
 type EditingEle = {
@@ -14,12 +15,10 @@ type EditingEle = {
     y?: number;
 }
 
-const initialState: EditingSlide = {
+const initialState: Slide = {
     index: 0,
-    contents: [
-        {type: 'text'},
-        {type: 'img'},
-    ],
+    contents: [],
+    activeEle: 0,
 }
 
 const editingSlide = createSlice({
@@ -31,11 +30,19 @@ const editingSlide = createSlice({
         },
         addEle(state, { payload }: PayloadAction<EditingEle>) {
             state.contents.push(payload);
+            state.activeEle = state.contents.length-1; //新增元素处于激活态
         },
+        selectEle(state, { payload }: PayloadAction<number>) {
+            state.activeEle = payload;
+        },
+        changeEleStyle(state,{payload}: PayloadAction<any>) {
+            const { contents, activeEle} = state;
+            contents[activeEle!].style = payload;
+        }
     },
   });
 
-  export const {setEditingSlide, addEle} = editingSlide.actions;
+  export const {setEditingSlide, addEle, selectEle, changeEleStyle} = editingSlide.actions;
   
   export default editingSlide.reducer;
   
