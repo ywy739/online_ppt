@@ -1,5 +1,4 @@
 import { Button } from "antd";
-import { useRef } from "react";
 import { addEle } from "../../store/editingSlide";
 import style from './index.module.scss';
 import { useAppSelector } from "../../hooks/useAppSelector";
