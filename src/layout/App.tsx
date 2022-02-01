@@ -3,13 +3,14 @@ import style from './App.module.scss';
 import Editor from './Editor';
 import PreviewArea from './Preview';
 import Settings from './Settings';
+import ShowingSlide from './ShowingSlide';
 
 
 function App() {
   
   const {isShowSlide} = useAppSelector(state => state.fullscreen);
   if(isShowSlide) {
-    return <div>hhh</div>
+    return <ShowingSlide/>
   }
 
   return (

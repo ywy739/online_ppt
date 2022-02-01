@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
 import fullscreenReducer from './fullscreen'
 import editingSlideReducer from './editingSlide'
-import { configureStore } from '@reduxjs/toolkit';
+import allSlidesReducer from './allSlides'
+import { configureStore } from '@reduxjs/toolkit'
 
 const rootReducer = combineReducers({
     fullscreen: fullscreenReducer,
     editingSlide: editingSlideReducer,
+    allSlides: allSlidesReducer,
 })
 
 // const store = createStore(rootReducer);

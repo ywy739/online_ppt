@@ -1,7 +1,6 @@
 
 import { Menu, Dropdown, Typography } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { useStore } from 'react-redux';
 import { useState } from 'react';
 import { changeEleStyle } from '../../../store/editingSlide';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
