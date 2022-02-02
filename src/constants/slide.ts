@@ -12,6 +12,10 @@ export type EditingEle = {
     type: string;
     // zIndex: number; 在contents数组的顺序，即z-index从小到大的，直接利用后面元素对前面元素的覆盖性来做图层
     style: React.CSSProperties;
+    // react-draggable的原理是利用transform：translate(x,y)做相对初始DOM文档流位置的位移。
+    // 拖拽中收集translate(x,y)值，放映时候利用relative，top,left还原
+    // 所以x,y字段只在放映时候，使用
+    // 补充：编辑中，切换幻灯片
     x?: number;
     y?: number;
 }

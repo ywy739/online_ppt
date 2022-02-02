@@ -1,6 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {Slide, Ele} from '../constants/slide'
 
+type MoveElePayload = {
+    index: number,
+    x: number,
+    y: number,
+}
 const initialState: Slide = {
     index: 0,
     contents: [],
@@ -23,6 +28,10 @@ const editingSlide = createSlice({
         selectEle(state, { payload }: PayloadAction<number>) {
             state.activeEle = payload;
         },
+        moveEle(state, {payload}: PayloadAction<MoveElePayload>){
+            state.contents[payload.index].x = payload.x;
+            state.contents[payload.index].y = payload.y;
+        },
         changeEleStyle(state, {payload}: PayloadAction<any>) {
             const {activeEle} = state;
             state.contents[activeEle!].style = payload;
@@ -30,7 +39,7 @@ const editingSlide = createSlice({
     },
   });
 
-  export const {setEditingSlide, addEle, selectEle, changeEleStyle} = editingSlide.actions;
+  export const {setEditingSlide, addEle, selectEle, changeEleStyle, moveEle} = editingSlide.actions;
   
   export default editingSlide.reducer;
 
