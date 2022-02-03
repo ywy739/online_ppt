@@ -1,4 +1,5 @@
 import { Button } from 'antd';
+import StaticComponent from '../../component/StaticComponents';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { addSlide, changeSlide } from '../../store/allSlides';
@@ -50,7 +51,19 @@ const PreviewArea = () => {
         </div>
         <div className={style.preview}>
             {slides.map((ele,slideIndex)=>{
-                return <div key={slideIndex} style={{width:'100px',height:'100px', border: '1px solid #5851b4'}} onClick={() => changeEditingSlide(slideIndex)}></div>;
+                const {contents} = ele;
+                const slideContent = contents.map((ele, index) => {
+                    const {type, style, x, y} = ele;
+                    // react-draggable的原理是利用transform：translate(x,y)做相对初始DOM文档流位置的位移。
+                    // 拖拽中收集translate(x,y)值，放映时候利用relative，top,left还原
+                    const newStyle = {...style, left:x, top:y}
+                    return <StaticComponent key={index} {...{type, style: newStyle}}/>
+                    });
+                return (
+                    <div key={slideIndex} style={{width:'160px',height:'100px', border: '1px solid #5851b4', position: 'relative'}} onClick={() => changeEditingSlide(slideIndex)}>
+                        {/* {slideContent} */}
+                    </div>
+                );
             })}
         </div>
         </div>
