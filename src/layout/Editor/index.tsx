@@ -19,7 +19,7 @@ const  Editor = () => {
       <div className={style.draggableContainer}>
         <div className={style.editingSlide}>
           {contents.map((ele, cIndex) => {
-            return <DraggableComponent key={`${index}-${cIndex}`} {...{...ele,index:index}}/>
+            return <DraggableComponent key={`${index}-${cIndex}`} {...{...ele,index:cIndex}}/>
           })}
         </div>
       </div>

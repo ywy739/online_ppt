@@ -6,9 +6,9 @@ import Settings from './Settings';
 import ShowingSlide from './ShowingSlide';
 
 
-function App() {
-  
+function App() { 
   const {isShowSlide} = useAppSelector(state => state.fullscreen);
+  
   if(isShowSlide) {
     return <ShowingSlide/>
   }

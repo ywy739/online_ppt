@@ -3,11 +3,13 @@ import { useAppSelector } from "../../hooks/useAppSelector";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import StaticComponent from "../../component/StaticComponents";
 import { CloseCircleOutlined, LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
-import { setFullscreen } from "../../store/fullscreen";
+import { backward, forward, setFullscreen } from "../../store/fullscreen";
 
 function ShowingSlide() {
   const dispatch = useAppDispatch();
-  const {contents} = useAppSelector(state => state.editingSlide);
+  const {index} = useAppSelector(state => state.fullscreen);
+  const {slides} = useAppSelector(state => state.allSlides);
+  const contents = slides[index].contents;
 
   return (
     <div className={style.editingSlide}>
@@ -19,8 +21,8 @@ function ShowingSlide() {
         return <StaticComponent key={index} {...{type, style: newStyle}}/>
       })}
       <div className={style.navBar}>
-        <LeftCircleOutlined />
-        <RightCircleOutlined />
+        {index !==0 && <LeftCircleOutlined onClick={() => dispatch(forward())}/>}
+        {index !== (slides.length-1) && <RightCircleOutlined onClick={() => dispatch(backward())}/>}
         <CloseCircleOutlined onClick={() => dispatch(setFullscreen(false))}/>
       </div>
     </div>

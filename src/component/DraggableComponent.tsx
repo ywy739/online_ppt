@@ -19,6 +19,7 @@ const DraggableComponent = (props: Props) => {
     // 拖拽中收集translate(x,y)值
     const [position, setPosition] = useState({x: x||0, y: y||0});
     const handleMove = (data:any) => {
+        console.log('handleMove')
         const {x,y} = data;
         setPosition({x,y});
         dispatch(moveEle({index,x,y}))

@@ -20,19 +20,24 @@ const editingSlide = createSlice({
             console.log('setSlide in editing', payload)
             state.index = payload.index;
             state.contents = payload.contents;
+            state.activeEle = 0;
         },
         addEle(state, { payload }: PayloadAction<Ele>) {
+            console.log('addE in editing', payload)
             state.contents.push(defaultElement[payload]);
             state.activeEle = state.contents.length - 1; //新增元素处于激活态
         },
         selectEle(state, { payload }: PayloadAction<number>) {
+            console.log('selectE in editing', payload)
             state.activeEle = payload;
         },
         moveEle(state, {payload}: PayloadAction<MoveElePayload>){
+            console.log('moveEle in editing', payload)
             state.contents[payload.index].x = payload.x;
             state.contents[payload.index].y = payload.y;
         },
         changeEleStyle(state, {payload}: PayloadAction<any>) {
+            console.log('changeEleStyle in editing', payload)
             const {activeEle} = state;
             state.contents[activeEle!].style = payload;
         },
