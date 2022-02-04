@@ -59,8 +59,9 @@ const PreviewArea = () => {
                     const newStyle = {...style, left:x, top:y}
                     return <StaticComponent key={index} {...{type, style: newStyle}}/>
                     });
+                const slideStyle = (slideIndex === editingSlideIndex )?  style.slide+ ' ' +style.selectSlide:style.slide;
                 return (
-                    <div key={slideIndex} style={{width:'160px',height:'100px', border: '1px solid #5851b4', position: 'relative'}} onClick={() => changeEditingSlide(slideIndex)}>
+                    <div key={slideIndex} className={slideStyle}  onClick={() => changeEditingSlide(slideIndex)}>
                         {/* {slideContent} */}
                     </div>
                 );
