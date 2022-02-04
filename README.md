@@ -1,9 +1,9 @@
 # About project design
-1.数据保存
-纯前端部署ppt项目，ppt数据存储在localstorage中，手动window.localStorage.clear()强制删除数据
-2.产品设计
-最低的门槛：相比目前市场已有的幻灯片软件，追求更快捷更方便的应用。你的电脑上不一定安装powerpoint,keyword，但大概率一定安装了浏览器
-最高效的操作； 内置PPT模版方案，更少的操作搭建更优美的方案
+1.数据保存\
+纯前端部署ppt项目，ppt数据存储在localstorage中，手动window.localStorage.clear()强制删除数据\
+2.产品设计\
+最低的门槛：相比目前市场已有的幻灯片软件，追求更快捷更方便的应用。你的电脑上不一定安装powerpoint,keyword，但大概率一定安装了浏览器\
+最高效的操作: 内置PPT模版方案，更少的操作搭建更优美的方案\
 
 # Getting Started with Create React App
 
