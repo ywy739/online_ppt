@@ -3,6 +3,8 @@ import Draggable from "react-draggable";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { moveEle, selectEle } from "../store/editingSlide";
 import StaticComponent from "./StaticComponents";
+import style from './index.module.scss';
+import { useAppSelector } from "../hooks/useAppSelector";
 
 type Props = {
     type: string;
@@ -13,8 +15,10 @@ type Props = {
 }
 
 const DraggableComponent = (props: Props) => {
-    const {index, type, style, x, y } = props;
+    const {index, style, x, y, ...rest } = props;
+    const {activeEle} = useAppSelector(state => state.editingSlide);
     const dispatch = useAppDispatch();
+    console.log(2,'dragcomponent rerender')
     // react-draggable的原理是利用transform：translate(x,y)做相对初始DOM文档流位置的位移。
     // 拖拽中收集translate(x,y)值
     const [position, setPosition] = useState({x: x||0, y: y||0});
@@ -24,10 +28,11 @@ const DraggableComponent = (props: Props) => {
         setPosition({x,y});
         dispatch(moveEle({index,x,y}))
     }
+    const selected = activeEle === index? {border: '2px solid #49bd96' } : {};
     return (
-        <Draggable bounds='parent' key={index} position={position} onMouseDown={() => dispatch(selectEle(index))} onStop={(e,data) => handleMove(data)}>
-           {/* <StaticComponent {...{type, style}}/> */}
-           {StaticComponent({type, style})}
+        <Draggable bounds='parent'  key={index} position={position} onMouseDown={() => dispatch(selectEle(index))} onStop={(e,data) => handleMove(data)}>
+           {/* <StaticComponent {...{...rest, style}}/> */}
+           {StaticComponent({style: {...selected, ...style}, ...rest})}
         </Draggable>
     );
 }
