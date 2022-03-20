@@ -8,7 +8,7 @@ import ShowingSlide from './ShowingSlide';
 
 function App() { 
   const {isShowSlide} = useAppSelector(state => state.fullscreen);
-  
+  console.log(0,'app rerender')
   if(isShowSlide) {
     return <ShowingSlide/>
   }

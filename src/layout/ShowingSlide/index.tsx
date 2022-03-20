@@ -14,11 +14,15 @@ function ShowingSlide() {
   return (
     <div className={style.editingSlide}>
       {contents.map((ele, index) => {
-        const {type, style, x, y} = ele;
+        const {type, style, x, y, ...rest} = ele;
         // react-draggable的原理是利用transform：translate(x,y)做相对初始DOM文档流位置的位移。
         // 拖拽中收集translate(x,y)值，放映时候利用relative，top,left还原
-        const newStyle = {...style, left:x, top:y}
-        return <StaticComponent key={index} {...{type, style: newStyle}}/>
+        
+        return (
+          <div style={{position: 'relative', left:x, top:y}}>
+            <StaticComponent key={index} {...{type, style, ...rest}}/>
+          </div> 
+        );
       })}
       <div className={style.navBar}>
         {index !==0 && <LeftCircleOutlined onClick={() => dispatch(forward())}/>}

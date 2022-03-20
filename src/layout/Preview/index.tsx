@@ -17,7 +17,7 @@ const PreviewArea = () => {
     const dispatch = useAppDispatch();
     const {contents, index: editingSlideIndex} = useAppSelector(state => state.editingSlide);
     const {slides} = useAppSelector(state => state.allSlides);
-    
+    console.log(1,'preview rerender')
     // 新建幻灯片
     const newSlide = () => {
         // 保存editingSlide至allSlide 
@@ -53,13 +53,14 @@ const PreviewArea = () => {
             {slides.map((ele,slideIndex)=>{
                 const {contents} = ele;
                 const slideContent = contents.map((ele, index) => {
-                    const {type, style, x, y} = ele;
+                    const {style, x, y, ...rest} = ele;
                     // react-draggable的原理是利用transform：translate(x,y)做相对初始DOM文档流位置的位移。
                     // 拖拽中收集translate(x,y)值，放映时候利用relative，top,left还原
                     const newStyle = {...style, left:x, top:y}
-                    return <StaticComponent key={index} {...{type, style: newStyle}}/>
+                    
+                    return <StaticComponent key={index} {...{style: newStyle, ...rest}}/>
                     });
-                const slideStyle = (slideIndex === editingSlideIndex )?  style.slide+ ' ' +style.selectSlide:style.slide;
+                const slideStyle = (slideIndex === editingSlideIndex )?  style.slide+ ' ' +style.selectSlide : style.slide;
                 return (
                     <div key={slideIndex} className={slideStyle}  onClick={() => changeEditingSlide(slideIndex)}>
                         {/* {slideContent} */}

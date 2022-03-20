@@ -27,6 +27,12 @@ const editingSlide = createSlice({
             state.contents.push(defaultElement[payload]);
             state.activeEle = state.contents.length - 1; //新增元素处于激活态
         },
+        addImg(state, { payload }: PayloadAction<string>) { // 图片组件会同时设置src拿到上传图片
+            console.log('addimg in editing', payload)
+            const img = {...defaultElement[Ele.Img], src: payload}
+            state.contents.push(img);
+            state.activeEle = state.contents.length - 1; //新增元素处于激活态
+        },
         selectEle(state, { payload }: PayloadAction<number>) {
             console.log('selectE in editing', payload)
             state.activeEle = payload;
@@ -44,7 +50,7 @@ const editingSlide = createSlice({
     },
   });
 
-  export const {setEditingSlide, addEle, selectEle, changeEleStyle, moveEle} = editingSlide.actions;
+  export const {setEditingSlide, addEle, addImg, selectEle, changeEleStyle, moveEle} = editingSlide.actions;
   
   export default editingSlide.reducer;
 

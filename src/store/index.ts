@@ -2,7 +2,6 @@ import { combineReducers } from 'redux'
 import fullscreenReducer from './fullscreen'
 import editingSlideReducer from './editingSlide'
 import allSlidesReducer from './allSlides'
-import { configureStore } from '@reduxjs/toolkit'
 import { applyMiddleware, createStore } from "redux"
 import { save, load } from "redux-localstorage-simple"
 

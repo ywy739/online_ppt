@@ -1,17 +1,19 @@
-.container{
-   :global {
-      .ant-tabs-nav-list{
-        width: 100%;
-        *{
-          flex: 1;
-        }
-        .ant-tabs-tab-btn {
-          text-align: center;
-        }
-      }
-      .ant-tabs-content {
-        padding-left: 16px;
-      }
-   }
- }
+.container {
+  :global {
+    .ant-tabs-nav-list{
+      width: 100%;
+      display: flex;
+      
+    } 
+    .ant-tabs-tab {
+      flex-grow:1; // 抖动bug，和css渲染原理相关
+    }
+    .ant-tabs-tab-btn {
+      margin: auto;
+    }
+    .ant-tabs-content {
+      padding-left: 16px;
+    }
+  }
+}
  

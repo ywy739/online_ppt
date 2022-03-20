@@ -16,7 +16,7 @@ const allSlides = createSlice({
     initialState,
     reducers: {
         addSlide(state) {
-            console.log('addSlide in all')
+            console.log('addSlide in all', state.slides)
             state.slides.push({index: 0, contents:[]});
         },
         changeSlide(state,{payload}: PayloadAction<Slide>){

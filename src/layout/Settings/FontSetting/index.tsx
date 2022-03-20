@@ -8,6 +8,7 @@ import { useAppDispatch } from '../../../hooks/useAppDispatch';
 const { Text, Title } = Typography;
 
 const FontSetting = () => {
+    console.log(2,' font setting rerender');
     const [fontStyle, setFontStyle] = useState('default');
     const dispatch = useAppDispatch();
     const menu = (
