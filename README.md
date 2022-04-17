@@ -5,6 +5,17 @@
 最低的门槛：相比目前市场已有的幻灯片软件，追求更快捷更方便的应用。你的电脑上不一定安装powerpoint,keyword，但大概率一定安装了浏览器\
 最高效的操作: 内置PPT模版方案，更少的操作搭建更优美的方案
 
+# About project techniq
+
+数据管理：rtk改造redux
+数据本地存储：redux-localstorage-simple
+拖拽：react-draggable的原理是利用transform：translate(x,y)去做相对最开始DOM文档流位置的位移。收集translate(x,y)值，放映时候利用relative，top,left还原
+
+幻灯片背景：https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient
+
+# License
+is created under the MIT license.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

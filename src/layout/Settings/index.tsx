@@ -1,6 +1,7 @@
-import { Tabs } from 'antd';
+import { Radio, Tabs } from 'antd';
 import FontSetting from './FontSetting';
 import style from './index.module.scss';
+import OrderSetting from './OrderSetting';
 import StyleSetting from './StyleSetting';
 
 const { TabPane } = Tabs;
@@ -8,6 +9,8 @@ const { TabPane } = Tabs;
 function callback(key: any) {
   // console.log(key);
 }
+
+
 
 const Settings = () => {
   console.log(1,'setting rerender');
@@ -20,7 +23,7 @@ const Settings = () => {
         <FontSetting/>
       </TabPane>
       <TabPane tab="排列" key="3">
-        Content of Tab Pane 3
+        <OrderSetting/>
       </TabPane>
     </Tabs>
   );

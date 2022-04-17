@@ -30,7 +30,7 @@ const DraggableComponent = (props: Props) => {
     }
     const selected = activeEle === index? {border: '2px solid #49bd96' } : {};
     return (
-        <Draggable bounds='parent'  key={index} position={position} onMouseDown={() => dispatch(selectEle(index))} onStop={(e,data) => handleMove(data)}>
+        <Draggable bounds='parent'  key={index} position={position} onMouseDown={() => dispatch(selectEle(index))} onDrag={(e,data) => handleMove(data)} onStop={(e,data) => handleMove(data)}>
            {/* <StaticComponent {...{...rest, style}}/> */}
            {StaticComponent({style: {...selected, ...style}, ...rest})}
         </Draggable>

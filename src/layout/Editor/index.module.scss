@@ -6,16 +6,20 @@
    .toolbar{
    flex: 0 1 46px;  
    background: #ffffff;
+   display: flex;
+   padding: 8px;
+    .free {
+      flex: 1;  
+    }
    }
    
    .draggableContainer{
      flex-grow: 1;
-     background: #b45151;
-     padding: 20px;
+     padding-top: 20px;
      
      .editingSlide {
       height: 100%;
-      border: 1px solid #5851b4 ;
+      border: 1px solid #333335 ;
       position: relative;
       left:0;
    }

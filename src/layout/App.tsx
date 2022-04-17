@@ -9,8 +9,19 @@ import ShowingSlide from './ShowingSlide';
 function App() { 
   const {isShowSlide} = useAppSelector(state => state.fullscreen);
   console.log(0,'app rerender')
+  const {index} = useAppSelector(state => state.fullscreen);
+  const {slides} = useAppSelector(state => state.allSlides);
+  const {background} = slides[index];
   if(isShowSlide) {
-    return <ShowingSlide/>
+    return (
+      <div className={style.container} style={{background}}>
+        <div className={style.main}>
+          <ShowingSlide/>
+        </div>
+        <div className={style.left} style={{background}}/>
+        <div className={style.right} style={{background}}/>
+      </div>
+    );
   }
 
   return (

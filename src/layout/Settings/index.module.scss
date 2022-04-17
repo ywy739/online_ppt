@@ -1,12 +1,15 @@
+
 .container {
   :global {
-    .ant-tabs-nav-list{
-      width: 100%;
-      display: flex;
+    .ss{
       
+    }
+    .ant-tabs-nav-list {
+      width: 100%;
+      display: flex;      
     } 
     .ant-tabs-tab {
-      flex-grow:1; // 抖动bug，和css渲染原理相关
+      flex-grow:1; 
     }
     .ant-tabs-tab-btn {
       margin: auto;

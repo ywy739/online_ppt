@@ -1,0 +1,13 @@
+.container {
+    :global {   
+        .ant-select-selection-item {
+            line-height: 42px !important;  
+        }
+        .ant-select-selector {
+            height: 42px !important;    
+        }        
+    }
+}
+.row {
+    margin-bottom: 12px;
+}

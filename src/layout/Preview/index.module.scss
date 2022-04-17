@@ -6,6 +6,13 @@
    .toolbar{
    flex: 0 0 46px;  
    background: #ffffff;
+   padding-top: 8px;
+   padding-right: 28px;
+      .icon {
+        font-size: 24px;
+        color: #333335;
+        width: 25%;
+      }
    }
    :global {
      .ant-btn {
@@ -15,7 +22,7 @@
    .slide {
       width: 160px;
       height: 100px;
-      border: 1px solid #5851b4;
+      border: 1px solid #333335 ;
       position: relative;
    }
    .selectSlide {

@@ -23,11 +23,19 @@ const allSlides = createSlice({
             console.log('changeSlide in all', payload)
             const {activeEle, editingSlideRef, ...staticSlide} = payload;// 过滤：编辑状态的活跃信息
             state.slides[payload.index] = staticSlide;
-        }
+        },
+        deleteSlide(state, {payload}: PayloadAction<number>) {
+            console.log('deleteSlide in all', state.slides)
+            state.slides.splice(payload, 1);
+        },
+        copySlide(state, {payload}: PayloadAction<number>) {
+            console.log('copySlide in all', state.slides)
+            state.slides.splice(payload, 0, state.slides[payload]);
+        },
     },
   });
 
-  export const {addSlide, changeSlide} = allSlides.actions;
+  export const {addSlide, changeSlide, deleteSlide, copySlide} = allSlides.actions;
   
   export default allSlides.reducer;
   

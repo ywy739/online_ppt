@@ -4,7 +4,8 @@ export type Slide = {
     index: number;// 第n张幻灯片
     contents: EditingEle[];
     activeEle?: number; // 编辑中的幻灯片存在一个编辑中的元素
-    editingSlideRef? :any;
+    editingSlideRef? :any;//?
+    background? : string
 }
 
 export type EditingEle = {

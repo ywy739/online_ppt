@@ -1,7 +1,14 @@
-.editingSlide {
+.container {
+  display: flex;
+  align-items: stretch;
   height: 100%;
-  position: relative;
-  left:0;
+  .editingSlide {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    left:0;
+  }
+  
   .navBar{
     position: absolute;
     bottom: 0;
