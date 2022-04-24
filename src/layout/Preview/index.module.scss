@@ -24,9 +24,18 @@
       height: 100px;
       border: 1px solid #333335 ;
       position: relative;
+      color: #323161;
+      font-size: 24px;
    }
    .selectSlide {
-      background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+      background-image: linear-gradient(120deg, #b5d3f0 0%, #fafaff 100%);
+      color: #978416;
+      font-size: 32px;
+   }
+   .index {
+      position: absolute;
+      bottom: 0;
+      right: 10px;
    }
  }
  

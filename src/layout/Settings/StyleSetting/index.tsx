@@ -13,10 +13,7 @@ const StyleSetting = () => {
 
     return (
         <Collapse  className={style.container} bordered={false} defaultActiveKey={[1, 2]} expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}>
-            <Panel header="幻灯片" key="1">
-                <div className={style.row}>
-                    <div>初始化模版</div>
-                </div>  
+            <Panel header="幻灯片" key="1"> 
                 <div className={style.row}>
                     <div>背景颜色</div>
                     <ColorPicker onChange={(color) => dispatch(setSlideBackground(color))}/>

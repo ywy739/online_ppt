@@ -77,15 +77,15 @@ const  Editor = () => {
     <div className={style.container}>
       <div className={style.toolbar} >
         <Popover placement="topLeft" content={'上传本地幻灯片，分享给其他人'} trigger="hover">
-          <Button size='middle' onClick={upload} type="primary">上传</Button>
+          <Button size='middle' onClick={upload} type="primary" style={{marginRight : '4px'}}>上传</Button>
         </Popover>
         <Popover placement="topLeft" content={'通过密钥获取远程幻灯片'} trigger="hover">
-          <Button size='middle' onClick={download} type="primary">获取</Button>
+          <Button size='middle' onClick={download} type="primary" style={{marginRight : '4px'}}>获取</Button>
         </Popover>
-        <Button size='middle' onClick={() => dispatch(addEle(Ele.Text))}>文本</Button>
+        <Button size='middle' onClick={() => dispatch(addEle(Ele.Text))} style={{marginRight : '4px'}}>文本</Button>
         <UploadCompoent addImg={handleAddImg}/>
         <div className={style.free} ></div>
-        <Button size='middle' onClick={() => dispatch(deleteEle())} danger>删除</Button>
+        <Button size='middle' onClick={() => dispatch(deleteEle())} danger style={{marginRight : '4px'}}>删除</Button>
         <Button size='middle' onClick={() => dispatch(copyEle())} danger>拷贝</Button>
       </div>
       <div className={style.draggableContainer}>

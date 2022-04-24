@@ -80,7 +80,7 @@ const PreviewArea = () => {
                 const slideStyle = (slideIndex === editingSlideIndex )?  style.slide+ ' ' +style.selectSlide : style.slide;
                 return (
                     <div key={slideIndex} className={slideStyle}  onClick={() => changeEditingSlide(slideIndex)}>
-                        {/* {slideContent} */}
+                      <span className={style.index}> {slideIndex}</span>
                     </div>
                 );
             })}
