@@ -50,7 +50,7 @@ const PreviewArea = () => {
 
     const deleteS = () => {
         dispatch(deleteSlide(editingSlideIndex));
-        dispatch(setEditingSlide({index: 0,contents:slides[0].contents}));
+        dispatch(setEditingSlide(slides[0]));
     }
 
     const copyS = () => {

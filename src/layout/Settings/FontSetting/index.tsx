@@ -36,7 +36,7 @@ const FontSetting = () => {
     <>
     <div className={style.row}>
         <div>字体大小</div>
-        <Select  className={style.container} defaultValue='default' style={{ width: 120, height: 42 }} onChange={handleChange}>
+        <Select  className={style.container} defaultValue='' style={{ width: 120, height: 42 }} onChange={handleChange}>
             <Option value="t2"><Title level={2}>标题</Title></Option>
             <Option value="t6"><Title level={5}>副标题</Title></Option>
             <Option value="default"> <Text >正文</Text></Option>

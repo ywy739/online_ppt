@@ -4,11 +4,11 @@ import { Slide } from "../constants/slide";
 type State = {
     slides: Slide[];
 }
-
+const initial = [
+    {index: 0, contents:[]}
+]
 const initialState: State = {
-    slides: [
-        {index: 0, contents:[]}
-    ],
+    slides: initial
 }
 
 const allSlides = createSlice({
@@ -17,7 +17,7 @@ const allSlides = createSlice({
     reducers: {
         addSlide(state) {
             console.log('addSlide in all', state.slides)
-            state.slides.push({index: 0, contents:[]});
+            state.slides.push({index: state.slides.length, contents:[]});
         },
         changeSlide(state,{payload}: PayloadAction<Slide>){
             console.log('changeSlide in all', payload)
@@ -26,11 +26,21 @@ const allSlides = createSlice({
         },
         deleteSlide(state, {payload}: PayloadAction<number>) {
             console.log('deleteSlide in all', state.slides)
+            if(state.slides.length === 1) {
+                state.slides= initial;
+                return ;
+            }
             state.slides.splice(payload, 1);
+            state.slides = state.slides.map((slide, index) => {
+                return {...slide, index}
+            })
         },
         copySlide(state, {payload}: PayloadAction<number>) {
             console.log('copySlide in all', state.slides)
             state.slides.splice(payload, 0, state.slides[payload]);
+            state.slides = state.slides.map((slide, index) => {
+                return {...slide, index}
+            })
         },
     },
   });

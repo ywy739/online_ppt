@@ -53,10 +53,6 @@ const editingSlide = createSlice({
             const {activeEle} = state;
             state.contents[activeEle!].style = {...state.contents[activeEle!].style, ...payload};
         },
-        changeSildeStyle(state, {payload}: PayloadAction<any>) {
-            console.log('changeStyle in editing', payload)
-            // state.style = {...state.style, ...payload};
-        },
         changeEle(state, {payload}: PayloadAction<any>) {
             console.log('changeEle in editing', payload)
             const {activeEle} = state;
@@ -72,20 +68,15 @@ const editingSlide = createSlice({
             const {activeEle} = state;
             state.contents.splice(activeEle!, 0, state.contents[activeEle!]);
         },
-        eleUp(state) {
-            
-        },
         changeEleLayer (state, {payload}: PayloadAction<string>) {
             const {activeEle, contents} = state;
             if(activeEle === undefined) return;
             switch (payload){
                 case 'down' :
-                    console.log(5554, contents)
                     if (activeEle === 0) return;
                     state.activeEle = activeEle - 1; 
                     const aim0 = contents.splice(activeEle, 1);
                     contents.splice(activeEle-1, 0, aim0[0])
-                    console.log(5554, contents, aim0, activeEle)
                     state.contents = contents;
                     break;
                 case 'up':
@@ -118,13 +109,9 @@ const editingSlide = createSlice({
   
   export default editingSlide.reducer;
 
-  const up = (array: EditingEle[], index: number) :EditingEle[]=> {
-      const res = array ;
-      return res; 
-  }
 // 定制元素对应默认的样式
   const defaultElement = {
-    [Ele.Text] : {type: 'text', style: {display: 'inline-block'}},
-    [Ele.Img] : {type: 'img', style: {}},
+    [Ele.Text] : {type: 'text', style: {display: 'inline-block'}, x:0, y:0},
+    [Ele.Img] : {type: 'img', style: {},  x:0, y:0},
   }
   

@@ -1,4 +1,12 @@
 .select {
   border: 2px solid #49bd96 ;
 }
+
+.dragable {
+  pointer-events: none;
+  width: fit-content;
+  //border: 1px solid #333335 ;
+  position: absolute;
+  left:0;
+}
  

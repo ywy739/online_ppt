@@ -22,7 +22,7 @@ const OrderSetting = () => {
         <>
         <div className={style.row}>
             <div>幻灯片顺序</div>
-                <Radio.Group onChange={handleLayerChange} defaultValue="">
+                <Radio.Group defaultValue="">
                     <Radio.Button value="up">前移一片</Radio.Button>
                     <Radio.Button value="top">首页</Radio.Button>
                     <Radio.Button value="down">后移一片</Radio.Button>

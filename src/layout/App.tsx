@@ -16,6 +16,7 @@ function App() {
     return (
       <div className={style.container} style={{background}}>
         <div className={style.main}>
+        <div className={style.toolbar}/>
           <ShowingSlide/>
         </div>
         <div className={style.left} style={{background}}/>

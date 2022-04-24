@@ -16,22 +16,22 @@ function ShowingSlide() {
     <div className={style.container} style={{background}}>
       <div className={style.editingSlide}>
         {contents.map((ele, index) => {
-          const {type, style, x, y, ...rest} = ele;
+          const {type, style: oldstyle, x, y, ...rest} = ele;
           // react-draggable的原理是利用transform：translate(x,y)做相对初始DOM文档流位置的位移。
           // 拖拽中收集translate(x,y)值，放映时候利用relative，top,left还原
           
           return (
-            <div style={{position: 'relative', left:x, top:y}}>
-              <StaticComponent key={index} {...{type, style, ...rest}}/>
+            <div style={{position: 'absolute', left:0, width: 'fit-content'}}>
+              <StaticComponent key={index} {...{type, ...rest}} style={{...oldstyle, position: 'relative', left:x, top:y}}/>
             </div> 
           );
         })}
       </div>
     <div className={style.navBar}>
-        {index !==0 && <LeftCircleOutlined onClick={() => dispatch(forward())}/>}
-        {index !== (slides.length-1) && <RightCircleOutlined onClick={() => dispatch(backward())}/>}
-        <CloseCircleOutlined onClick={() => dispatch(setFullscreen(false))}/>
-      </div>
+      {index !==0 && <LeftCircleOutlined onClick={() => dispatch(forward())}/>}
+      {index !== (slides.length-1) && <RightCircleOutlined onClick={() => dispatch(backward())}/>}
+      <CloseCircleOutlined onClick={() => dispatch(setFullscreen(false))}/>
+    </div>
   </div>
   );
 }
